@@ -10,7 +10,8 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,md}": "eslint --cache --fix"
+    "*.{js,jsx,ts,tsx,json,css,md}": "eslint --cache --fix",
+    "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "husky": "^9.1.7",
@@ -27,6 +28,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
+    "prettier": "3.6.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
