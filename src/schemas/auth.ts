@@ -32,7 +32,6 @@ export const RegisterSchema = z
       .optional()
       .or(z.literal("")),
 
-    // 🟦 Nowe pola:
     is_accountant: z.boolean(),
     certificate_number: z.string().optional(),
     office_address: z.string().optional(),
@@ -51,4 +50,30 @@ export const RegisterSchema = z
     },
   );
 
+export const OnboardingSchema = z.object({
+  certificate_scan: z
+    .file()
+    .max(5 * 1024 * 1024, "Plik jest za duży")
+    .mime(
+      ["image/jpeg", "image/jpeg", "image/png", "application/pdf"],
+      "Nieprawidłowy format pliku. Dozwolone formaty to jpg, png, pdf",
+    ),
+  certificate_number: z.string().min(1, "Numer certyfikatu jest wymagany"),
+  office_address: z.string().min(1, "Adres biura jest wymagany"),
+});
+
+export const OnboardingSecondStepSchema = z.object({
+  firstname: z
+    .string()
+    .min(2, "Imię musi zawierać co najmniej 2 znaki")
+    .max(50),
+  lastname: z
+    .string()
+    .min(2, "Nazwisko musi zawierać co najmniej 2 znaki")
+    .max(50),
+});
+export type OnboardingSecondStepValues = z.infer<
+  typeof OnboardingSecondStepSchema
+>;
 export type RegisterFormValues = z.infer<typeof RegisterSchema>;
+export type OnboardingFormValues = z.infer<typeof OnboardingSchema>;

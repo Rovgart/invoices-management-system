@@ -16,29 +16,23 @@ import { Button } from "../button";
 import { z } from "zod";
 import Image from "next/image";
 import fakturek_logo from "../../../../public/file.svg";
+import { useRouter } from "next/navigation";
 
 type RegisterFormValues = z.infer<typeof RegisterSchema>;
 
 export default function RegisterForm() {
+  const { push } = useRouter();
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(RegisterSchema),
     defaultValues: {
       email: "",
       password: "",
-      repeat_password: "",
-      firstname: "",
-      lastname: "",
-      company_name: "",
-      nip: "",
-      phone: "",
-      is_accountant: false,
-      certificate_number: "",
-      office_address: "",
     },
   });
 
   const onSubmit: SubmitHandler<RegisterFormValues> = async (data) => {
     console.log(data);
+    push("/onboarding?step=1");
   };
   return (
     <div className="flex items-center justify-center">
@@ -74,94 +68,10 @@ export default function RegisterForm() {
 
           <FormField
             control={form.control}
-            name="firstname"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Imię</FormLabel>
-                <FormControl>
-                  <Input placeholder="Imię" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="lastname"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Nazwisko</FormLabel>
-                <FormControl>
-                  <Input placeholder="Nazwisko" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="company_name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Nazwa firmy</FormLabel>
-                <FormControl>
-                  <Input placeholder="Nazwa firmy" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="nip"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>NIP</FormLabel>
-                <FormControl>
-                  <Input placeholder="NIP" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Telefon (opcjonalnie)</FormLabel>
-                <FormControl>
-                  <Input placeholder="Telefon" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
             name="password"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Hasło</FormLabel>
-                <FormControl>
-                  <Input type="password" placeholder="Hasło" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="repeat_password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Powtórz hasło</FormLabel>
                 <FormControl>
                   <Input
                     type="password"
