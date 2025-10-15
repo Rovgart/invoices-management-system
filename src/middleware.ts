@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
-  const protectedRoutes = ["/dashboard", "/onboarding"];
+  const protectedRoutes = ["/dashboard", "/"];
 
   if (
     protectedRoutes.some((route) =>
@@ -18,5 +18,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/onboarding/:path*"],
+  matcher: ["/dashboard/:path*"],
 };

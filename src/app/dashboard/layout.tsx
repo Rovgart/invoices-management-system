@@ -4,16 +4,17 @@ import {
   SidebarProvider,
   Sidebar,
   SidebarHeader,
-  SidebarContent,
-  SidebarGroup,
   SidebarFooter,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
+import { Metadata } from "next";
 import Link from "next/link";
-import { title } from "process";
-
+export const metadata: Metadata = {
+  title: "Dashboard | Fakturek",
+  description: "Panel do obsługi dokumentów księgowych",
+};
 export default async function AuthLayout({
   children,
 }: {

@@ -1,18 +1,18 @@
-"use client";
-import React, { ReactElement } from "react";
-import OnboardingLayout from "./layout";
-import OnboardingSecondStep from "./OnboardingFirstStep";
-import { useSearchParams } from "next/navigation";
-import OnboardingThirdStep from "./OnboardingSecondStep";
-function OnboardingPage() {
-  const searchParams = useSearchParams();
-  const step = searchParams.get("step") || "1";
+// app/onboarding/page.tsx
+import OnboardingClient from "./OnboardingClient";
 
-  const steps: Record<number, ReactElement> = {
-    1: <OnboardingSecondStep />,
-    2: <OnboardingThirdStep />,
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { step: string };
+}) {
+  const step = searchParams.step ?? "1";
+  return {
+    title: `Onboarding – krok ${step} | Fakturek`,
+    description: "Przejdź przez proces onboardingu księgowego",
   };
-  return <OnboardingLayout>{steps[parseInt(step)]}</OnboardingLayout>;
 }
 
-export default OnboardingPage;
+export default function OnboardingPage() {
+  return <OnboardingClient />;
+}
