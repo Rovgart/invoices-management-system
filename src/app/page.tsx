@@ -1,104 +1,232 @@
-import { Metadata } from "next";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import CaseStudyStepper from "@/components/ui/stepper";
+import Footer from "@/components/ui/footer";
+import Header from "@/components/ui/header";
+import heroBanner2 from "../../public/hero-img2.png";
+
+type CardContentT = {
+  title: string;
+  desc: string;
+};
 import Image from "next/image";
+type BusinessPlanT = "Free" | "Pro" | "Business";
+type BusinessPlansContentT = Record<BusinessPlanT, string[]>;
+
+const CARD_CONTENTS: CardContentT[] = [
+  {
+    title: "⚡ Błyskawiczne faktury",
+    desc: "Wystaw fakturę sprzedaży w 3 prostych krokach — klient, kwota,opis — i gotowe. System sam nada numer, policzy VAT i wygeneruje PDF.",
+  },
+  {
+    title: "📥 Import z Excela w 1 klik ",
+    desc: " Masz dane w arkuszu? Wrzuć XLS lub CSV — a nasz system: rozpozna kolumny automatycznie, połączy pozycje w faktury, przeliczy waluty i uzupełni NIP-y, a Ty tylko zatwierdzisz i wyślesz PDF-y do klientów.",
+  },
+  {
+    title: "🧠 AI, które pracuje za Ciebie",
+    desc: "Nasza sztuczna inteligencja wykrywa błędy w danych i podpowiada poprawki, generuje profesjonalne opisy usług, dopasowuje formaty faktur do Twoich klientów (PL / UE / zagranica).",
+  },
+];
+const BUSINESS_PLANS_CONTENTS: BusinessPlansContentT = {
+  Free: [
+    "Do 5 faktur miesięcznie",
+    "Generowanie PDF i wysyłka email",
+    "Podstawowy panel faktur",
+    "Podstawowe raporty przychodów",
+  ],
+  Pro: [
+    "Nielimitowane faktury",
+    "Uzupełnianie opisów przez AI",
+    "Branding faktur (logo, kolory)",
+    "Przypomnienia o płatnościach",
+    "Eksport PDF, CSV, JPK",
+  ],
+  Business: [
+    "Wszystko z planu Pro",
+    "Integracja z KSeF 2026",
+    "Integracja z kontami bankowymi",
+    "Faktury cykliczne / subskrypcyjne",
+    "API i integracje z systemami księgowymi",
+    "Zaawansowane raporty i analizy",
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="min-h-screen w-full">
+      <Header />
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+        <section className="grid md:grid-cols-2 grid-cols-1  place-items-center gap-6 py-12 ">
+          <div className="flex flex-col space-y-8">
+            <h1 className="text-5xl text-primary sm:text-6xl font-extrabold tracking-tight ">
+              Witaj w Fakturek!
+            </h1>
+            <p className="text-xl  text-muted-foreground max-w-2xl  leading-relaxed">
+              Panel do obsługi dokumentów księgowych. Zacznij już dziś i uprość
+              zarządzanie swoimi fakturami i wydatkami.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button variant="default" size="lg" asChild>
+                <Link href="/register">Zacznij teraz</Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/about">Dowiedz się więcej</Link>
+              </Button>
+            </div>
+          </div>
+          <picture className="relative overflow-hidden rounded-2xl shadow-xl group">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              className="size-full object-cover transition-transform duration-[6000ms] ease-out group-hover:scale-110"
+              src={heroBanner2}
+              alt="hero-banner"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            {/* półprzezroczysty gradient jako overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+          </picture>
+        </section>
+        <section className="space-y-8">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-primary">
+              Wszystko czego potrzebujesz
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {CARD_CONTENTS.map((cardContent) => (
+              <>
+                <div
+                  key={cardContent.title}
+                  className="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow "
+                >
+                  <h3 className="text-2xl font-bold mb-4 text-primary">
+                    {cardContent.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed ">
+                    {cardContent.desc}
+                  </p>
+                </div>
+              </>
+            ))}
+          </div>
+        </section>
+        <section className="space-y-8">
+          <div className="text-center">
+            <h2 className="text-4xl text-primary font-bold">Cennik</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Free Plan */}
+            <Card className="flex flex-col border">
+              <CardHeader className="space-y-2 pb-4">
+                <CardTitle className="text-3xl text-foreground">Free</CardTitle>
+                <CardDescription className="text-base">
+                  Cena 0 zł / miesiąc
+                </CardDescription>
+                <CardDescription>
+                  Dla freelancerów, którzy chcą wypróbować aplikację.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <ul className="space-y-2 text-sm">
+                  {BUSINESS_PLANS_CONTENTS["Free"].map(
+                    (plan_content, index) => (
+                      <>
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span className="text-muted-foreground">
+                            {plan_content}
+                          </span>
+                        </li>
+                      </>
+                    ),
+                  )}
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full" variant="outline">
+                  Wybieram plan FREE
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card className="flex flex-col border md:ring-2 md:ring-primary">
+              <CardHeader className="space-y-2 pb-4">
+                <CardTitle className="text-3xl">Pro</CardTitle>
+                <CardDescription className="text-base">
+                  Cena 29 zł / miesiąc
+                </CardDescription>
+                <CardDescription>
+                  Dla aktywnych freelancerów — więcej automatyzacji i AI.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <ul className="space-y-2 text-sm">
+                  {BUSINESS_PLANS_CONTENTS["Pro"].map((plan_content, index) => (
+                    <>
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span className="text-muted-foreground">
+                          {plan_content}
+                        </span>
+                      </li>
+                    </>
+                  ))}
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full">Wybieram plan PRO</Button>
+              </CardFooter>
+            </Card>
+            <Card className="flex flex-col border">
+              <CardHeader className="space-y-2 pb-4">
+                <CardTitle className="text-3xl text-foreground">
+                  Business
+                </CardTitle>
+                <CardDescription className="text-base">
+                  Cena 59 zł / miesiąc
+                </CardDescription>
+                <CardDescription>
+                  Dla freelancerów i firm, które potrzebują pełnej
+                  automatyzacji.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <ul className="space-y-2 text-sm">
+                  <ul className="space-y-2 text-sm">
+                    {BUSINESS_PLANS_CONTENTS["Business"].map(
+                      (plan_content, index) => (
+                        <>
+                          <li key={index} className="flex items-start gap-2">
+                            <span className="text-primary mt-1">•</span>
+                            <span className="text-muted-foreground">
+                              {plan_content}
+                            </span>
+                          </li>
+                        </>
+                      ),
+                    )}
+                  </ul>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full" variant="outline">
+                  Wybieram plan BUSINESS
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </section>
+        <section>
+          <CaseStudyStepper />
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <Footer />
     </div>
   );
 }
