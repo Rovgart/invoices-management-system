@@ -31,19 +31,9 @@ function LoginForm() {
   return (
     <Form {...form}>
       <form
-        className="space-y-8 border p-4 rounded-md shadow-sm flex flex-col w-96"
+        className="space-y-8  rounded-md  flex flex-col "
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        <div className="flex items-center  justify-center">
-          <picture className="size-8">
-            <img
-              className="w-full h-full object-cover"
-              src="/file.svg"
-              alt="fakturek-logo"
-            />
-          </picture>
-          <span className="font-bold text-2xl ml-2">Fakturek</span>
-        </div>
         <FormField
           control={form.control}
           name="email"
@@ -62,9 +52,9 @@ function LoginForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Hasło</FormLabel>
               <FormControl>
-                <Input placeholder="Password" type="password" {...field} />
+                <Input placeholder="Hasło" type="password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -78,14 +68,14 @@ function LoginForm() {
               <FormControl>
                 <div className="flex items-center gap-2">
                   <Checkbox onCheckedChange={field.onChange} id="remember-me" />
-                  <Label htmlFor="remember-me">Remember me</Label>
+                  <Label htmlFor="remember-me">Zapamiętaj mnie</Label>
                 </div>
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button>Login</Button>
+        <Button type="submit">Zaloguj</Button>
       </form>
     </Form>
   );

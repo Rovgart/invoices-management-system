@@ -18,6 +18,9 @@ type CardContentT = {
   desc: string;
 };
 import Image from "next/image";
+import ModalManager from "@/components/modalManager";
+import { useAuthUIStore } from "@/store/auth-store";
+import BeginButton from "@/components/ui/BeginButton";
 type BusinessPlanT = "Free" | "Pro" | "Business";
 type BusinessPlansContentT = Record<BusinessPlanT, string[]>;
 
@@ -62,6 +65,7 @@ const BUSINESS_PLANS_CONTENTS: BusinessPlansContentT = {
 export default function Home() {
   return (
     <div className="min-h-screen w-full">
+      <ModalManager />
       <Header />
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 space-y-20">
         <section className="grid md:grid-cols-2 grid-cols-1  place-items-center gap-6 py-12 ">
@@ -74,9 +78,7 @@ export default function Home() {
               zarządzanie swoimi fakturami i wydatkami.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button variant="default" size="lg" asChild>
-                <Link href="/register">Zacznij teraz</Link>
-              </Button>
+              <BeginButton />
               <Button size="lg" variant="outline" asChild>
                 <Link href="/about">Dowiedz się więcej</Link>
               </Button>
@@ -88,7 +90,6 @@ export default function Home() {
               src={heroBanner2}
               alt="hero-banner"
             />
-            {/* półprzezroczysty gradient jako overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
           </picture>
         </section>
@@ -100,19 +101,17 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {CARD_CONTENTS.map((cardContent) => (
-              <>
-                <div
-                  key={cardContent.title}
-                  className="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow "
-                >
-                  <h3 className="text-2xl font-bold mb-4 text-primary">
-                    {cardContent.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed ">
-                    {cardContent.desc}
-                  </p>
-                </div>
-              </>
+              <div
+                key={cardContent.title}
+                className="p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow "
+              >
+                <h3 className="text-2xl font-bold mb-4 text-primary">
+                  {cardContent.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed ">
+                  {cardContent.desc}
+                </p>
+              </div>
             ))}
           </div>
         </section>
@@ -121,7 +120,6 @@ export default function Home() {
             <h2 className="text-4xl text-primary font-bold">Cennik</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Free Plan */}
             <Card className="flex flex-col border">
               <CardHeader className="space-y-2 pb-4">
                 <CardTitle className="text-3xl text-foreground">Free</CardTitle>
@@ -136,14 +134,12 @@ export default function Home() {
                 <ul className="space-y-2 text-sm">
                   {BUSINESS_PLANS_CONTENTS["Free"].map(
                     (plan_content, index) => (
-                      <>
-                        <li key={index} className="flex items-start gap-2">
-                          <span className="text-primary mt-1">•</span>
-                          <span className="text-muted-foreground">
-                            {plan_content}
-                          </span>
-                        </li>
-                      </>
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span className="text-muted-foreground">
+                          {plan_content}
+                        </span>
+                      </li>
                     ),
                   )}
                 </ul>
@@ -167,14 +163,12 @@ export default function Home() {
               <CardContent className="flex-1">
                 <ul className="space-y-2 text-sm">
                   {BUSINESS_PLANS_CONTENTS["Pro"].map((plan_content, index) => (
-                    <>
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        <span className="text-muted-foreground">
-                          {plan_content}
-                        </span>
-                      </li>
-                    </>
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span className="text-muted-foreground">
+                        {plan_content}
+                      </span>
+                    </li>
                   ))}
                 </ul>
               </CardContent>
@@ -200,14 +194,12 @@ export default function Home() {
                   <ul className="space-y-2 text-sm">
                     {BUSINESS_PLANS_CONTENTS["Business"].map(
                       (plan_content, index) => (
-                        <>
-                          <li key={index} className="flex items-start gap-2">
-                            <span className="text-primary mt-1">•</span>
-                            <span className="text-muted-foreground">
-                              {plan_content}
-                            </span>
-                          </li>
-                        </>
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span className="text-muted-foreground">
+                            {plan_content}
+                          </span>
+                        </li>
                       ),
                     )}
                   </ul>
