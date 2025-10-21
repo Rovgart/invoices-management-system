@@ -47,7 +47,7 @@ function Footer() {
       <picture className=" flex max-w-[225px]  self-center justify-center items-center mx-0 m-auto overflow-hidden ">
         <Image src={fakturekLogo} alt="fakturek-logo" className="size-full" />
       </picture>
-      <div className="flex flex-col text-lg text-muted-foreground  ">
+      <div className="flex flex-col text-base text-muted-foreground  ">
         <ul className="space-y-2">
           {NAVLINKS.map((navlink) => (
             <li key={navlink.title}>

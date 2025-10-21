@@ -70,10 +70,10 @@ export default function Home() {
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 space-y-20">
         <section className="grid md:grid-cols-2 grid-cols-1  place-items-center gap-6 py-12 ">
           <div className="flex flex-col space-y-8">
-            <h1 className="text-5xl text-primary sm:text-6xl font-extrabold tracking-tight ">
+            <h1 className="text text-primary sm:text-4xl font-extrabold tracking-tight ">
               Witaj w Fakturek!
             </h1>
-            <p className="text-xl  text-muted-foreground max-w-2xl  leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-2xl  leading-relaxed">
               Panel do obsługi dokumentów księgowych. Zacznij już dziś i uprość
               zarządzanie swoimi fakturami i wydatkami.
             </p>
@@ -145,7 +145,7 @@ export default function Home() {
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button className="w-full" variant="outline">
+                <Button className="w-full " variant="outline">
                   Wybieram plan FREE
                 </Button>
               </CardFooter>
