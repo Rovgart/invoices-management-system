@@ -1,11 +1,5 @@
-"use server";
-import { Sidebar } from "@/components/ui/sidebar";
-import AuthLayout from "./layout";
+import Dashboard from "@/components/ui/dashboard";
 
 export default async function RegisterPage() {
-  return (
-    <AuthLayout>
-      <div></div>
-    </AuthLayout>
-  );
+  return <Dashboard />;
 }

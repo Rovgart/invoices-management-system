@@ -4,6 +4,16 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-size-xs: var(--text-xs);
+  --font-size-sm: var(--text-sm);
+  --font-size-base: var(--text-base);
+  --font-size-lg: var(--text-lg);
+  --font-size-xl: var(--text-xl);
+  --font-size-2xl: var(--text-2xl);
+  --font-size-3xl: var(--text-3xl);
+  --font-size-4xl: var(--text-4xl);
+  --font-size-5xl: var(--text-5xl);
+  --font-size-6xl: var(--text-6xl);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -37,6 +47,18 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  --color-error-border: var(--error-border);
+  --color-error-ring: var(--error-ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-border: var(--success-border);
+  --color-success-ring: var(--success-ring);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-border: var(--warning-border);
+  --color-warning-ring: var(--warning-ring);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -76,6 +98,39 @@
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.65 0.1 259.5);
   --sidebar-ring: oklch(0.42 0.15 259.5);
+  --error: oklch(0.55 0.22 25);
+  --error-foreground: oklch(0.98 0.01 25);
+  --error-border: oklch(0.65 0.18 25);
+  --error-ring: oklch(0.42 0.2 25);
+  --success: oklch(0.65 0.17 145);
+  --success-foreground: oklch(0.98 0.01 145);
+  --success-border: oklch(0.7 0.15 145);
+  --success-ring: oklch(0.5 0.18 145);
+  --warning: oklch(0.75 0.15 85);
+  --warning-foreground: oklch(0.2 0.02 85);
+  --warning-border: oklch(0.8 0.13 85);
+  --warning-ring: oklch(0.6 0.16 85);
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+  --text-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 3rem);
+  --text-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3.75rem);
+  --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 5rem);
+  --text-6xl: clamp(100rem, 3rem + 12rem, 6.5rem);
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
 }
 
 .dark {
@@ -110,6 +165,18 @@
   --sidebar-accent-foreground: oklch(0.145 0 0);
   --sidebar-border: oklch(0.3 0.06 259.5);
   --sidebar-ring: oklch(0.58 0.13 259.5);
+  --error: oklch(0.65 0.2 25);
+  --error-foreground: oklch(0.98 0.01 25);
+  --error-border: oklch(0.5 0.18 25);
+  --error-ring: oklch(0.65 0.2 25);
+  --success: oklch(0.7 0.15 145);
+  --success-foreground: oklch(0.98 0.01 145);
+  --success-border: oklch(0.55 0.16 145);
+  --success-ring: oklch(0.7 0.15 145);
+  --warning: oklch(0.75 0.15 85);
+  --warning-foreground: oklch(0.15 0.02 85);
+  --warning-border: oklch(0.6 0.16 85);
+  --warning-ring: oklch(0.75 0.15 85);
 }
 
 @layer base {
