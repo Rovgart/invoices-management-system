@@ -18,7 +18,7 @@ type CardContentT = {
   desc: string;
 };
 import Image from "next/image";
-import ModalManager from "@/components/modalManager";
+import ModalManager from "@/components/ui/modals/ModalManager";
 import { useAuthUIStore } from "@/store/auth-store";
 import BeginButton from "@/components/ui/BeginButton";
 type BusinessPlanT = "Free" | "Pro" | "Business";

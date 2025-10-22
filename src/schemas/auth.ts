@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { nipSchemaWithValidation, strictPhoneSchema } from "./helpersSchemas";
 
 export const LoginAuthSchema = z.object({
   email: z.email("Invalid email address"),
@@ -38,8 +39,20 @@ export const OnboardingSecondStepSchema = z.object({
     .min(2, "Nazwisko musi zawierać co najmniej 2 znaki")
     .max(50),
 });
+export const AddCustomerSchema = z.object({
+  customer_name: z
+    .string()
+    .min(2, "Nazwa klienta jest za krótka")
+    .max(55, "Nazwa klienta jest za długa"),
+  clientType: z.string(),
+  nip: nipSchemaWithValidation,
+  email: z.email("Nieprawidłowy adres e-mail"),
+  phone_number: strictPhoneSchema.optional(),
+  country: z.string(),
+});
 export type OnboardingSecondStepValues = z.infer<
   typeof OnboardingSecondStepSchema
 >;
 export type RegisterFormValues = z.infer<typeof RegisterSchema>;
 export type OnboardingFormValues = z.infer<typeof OnboardingSchema>;
+export type AddCustomerSchemaValues = z.infer<typeof AddCustomerSchema>;

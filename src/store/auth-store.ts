@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type ModalType = "login-modal" | "register-modal" | "";
+export type ModalType = "login-modal" | "register-modal" | "add-customer" | "";
 
 interface AuthUIStore {
   modalType: ModalType;

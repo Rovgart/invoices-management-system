@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lato } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers/providers";
-import LoginModal from "@/components/ui/LoginModal";
-import ModalManager from "@/components/modalManager";
+import LoginModal from "@/components/ui/modals/LoginModal";
+import ModalManager from "@/components/ui/modals/ModalManager";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${LatoFont.variable} antialiased`}
       >
-        <LoginModal />
+        <ModalManager />
         <Providers>{children}</Providers>
       </body>
     </html>

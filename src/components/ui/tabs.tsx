@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "./button";
 import { Badge } from "./badge";
+import { useAuthUIStore } from "@/store/auth-store";
 
 function Tabs({
   className,
@@ -74,6 +75,7 @@ function TabsContent({
 }
 
 function ClientsTab() {
+  const { openModal } = useAuthUIStore();
   const clients = [
     {
       id: 1,
@@ -153,7 +155,11 @@ function ClientsTab() {
     <div className="p-6   ">
       <div className="flex justify-between items-center mb-6 ">
         <h2 className="text-2xl font-bold">Klienci</h2>
-        <Button variant={"secondary"} className="cursor-pointer">
+        <Button
+          onClick={() => openModal("add-customer")}
+          variant={"secondary"}
+          className="cursor-pointer"
+        >
           + Dodaj klienta
         </Button>
       </div>

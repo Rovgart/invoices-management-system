@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { useAuthUIStore } from "@/store/auth-store";
 import { useState } from "react";
-import LoginForm from "./forms/LoginForm";
+import LoginForm from "../forms/LoginForm";
 type ModalPropsT = {
   onChange: () => void;
   open: boolean;
