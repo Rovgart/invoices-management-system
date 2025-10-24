@@ -1,6 +1,6 @@
 "use client";
 import React, { ReactElement, useEffect } from "react";
-import { ClientsTab, InvoicesTab, StatisticsTab } from "./tabs";
+import { InvoicesTab, StatisticsTab } from "./tabs";
 
 type Props = {
   currentTab: string;
@@ -8,7 +8,6 @@ type Props = {
 const tabs: Record<string, ReactElement> = {
   invoices: <InvoicesTab />,
   statistics: <StatisticsTab />,
-  clients: <ClientsTab />,
 };
 function TabView({ currentTab }: Props) {
   useEffect(() => {

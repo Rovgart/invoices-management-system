@@ -11,6 +11,7 @@ import {
 } from "./card";
 import { Button } from "./button";
 import { Badge } from "./badge";
+import { useRouter } from "next/navigation";
 
 type InvoicePropsT = {
   invoice: Invoice;
@@ -50,16 +51,22 @@ function InvoiceStatusBadge({ status }: InvoiceStatus) {
   return <Badge variant={statusColorHandler()}>{statusLabels[status]}</Badge>;
 }
 function Invoice({ invoice }: InvoicePropsT) {
+  const router = useRouter();
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>{invoice.number}</CardTitle>
         <CardDescription>
-          Data wystawienia:
+          Data wystawienia:{" "}
           {new Date(invoice.issueDate).toLocaleDateString("pl-PL")}
         </CardDescription>
         <CardAction>
-          <Button variant="ghost" size="sm">
+          <Button
+            onClick={() => router.push(`/dashboard/${invoice.id}`)}
+            variant="ghost"
+            size="sm"
+          >
             Szczegóły
           </Button>
         </CardAction>
