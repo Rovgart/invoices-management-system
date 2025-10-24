@@ -7,10 +7,6 @@ import fakturekLogo from "../../../public/fakturek-logo.png";
 import { useAuthUIStore } from "@/store/auth-store";
 function Header() {
   const { openModal } = useAuthUIStore();
-  const toggleModalHandler = () => {
-    console.log("Opened");
-    openModal("login-modal");
-  };
   const headerRef = useRef(null);
   const sentinelRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -36,7 +32,7 @@ function Header() {
     return () => {
       if (sentinel) observer.unobserve(sentinel);
     };
-  }, [sentinelRef, intersectionOptions]);
+  }, [sentinel, intersectionOptions]);
 
   return (
     <>

@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Lato } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers/providers";
 import LoginModal from "@/components/ui/LoginModal";
-import ModalManager from "@/components/modalManager";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

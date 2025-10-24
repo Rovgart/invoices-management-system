@@ -19,7 +19,6 @@ type CardContentT = {
 };
 import Image from "next/image";
 import ModalManager from "@/components/modalManager";
-import { useAuthUIStore } from "@/store/auth-store";
 import BeginButton from "@/components/ui/BeginButton";
 type BusinessPlanT = "Free" | "Pro" | "Business";
 type BusinessPlansContentT = Record<BusinessPlanT, string[]>;
