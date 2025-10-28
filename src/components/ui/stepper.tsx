@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
+import Image from "next/image";
 
 type Step = {
   id: string;
@@ -83,7 +84,6 @@ export default function CaseStudyStepper({
 
               return (
                 <li key={s.id} className="mb-8 relative">
-                  {/* Linia łącząca */}
                   {i !== steps.length - 1 && (
                     <span
                       aria-hidden
@@ -98,7 +98,6 @@ export default function CaseStudyStepper({
                     className="group w-full text-left flex items-start gap-4"
                     aria-current={active ? "step" : undefined}
                   >
-                    {/* Numer / check */}
                     <div className="flex flex-col items-center">
                       <div
                         className={`flex items-center justify-center w-9 h-9 rounded-full text-sm font-medium ring-1 transition-colors ${
@@ -112,8 +111,6 @@ export default function CaseStudyStepper({
                         {completed ? "✓" : i + 1}
                       </div>
                     </div>
-
-                    {/* Treść */}
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
                         <h3
@@ -144,8 +141,6 @@ export default function CaseStudyStepper({
               );
             })}
           </ol>
-
-          {/* Kontrolki */}
           <div className="mt-6 flex items-center gap-3">
             <button
               onClick={prev}
@@ -166,15 +161,14 @@ export default function CaseStudyStepper({
             </button>
           </div>
         </div>
-
-        {/* OBRAZ */}
         <div className="order-1 lg:order-2">
           <div className="rounded-xl overflow-hidden border bg-card text-card-foreground min-h-[240px] flex items-center justify-center">
             {steps[index]?.image ? (
-              <img
+              <Image
+                height={100}
+                width={100}
                 src={steps[index].image}
                 alt={`${steps[index].title} screenshot`}
-                className="w-full h-full object-cover"
               />
             ) : (
               <div className="p-8 text-center">

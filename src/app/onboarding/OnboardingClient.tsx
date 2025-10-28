@@ -1,4 +1,3 @@
-// app/onboarding/OnboardingClient.tsx
 "use client";
 
 import { useSearchParams } from "next/navigation";

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lato } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers/providers";
-import LoginModal from "@/components/ui/modals/LoginModal";
 import ModalManager from "@/components/ui/modals/ModalManager";
 
 const geistSans = Geist({

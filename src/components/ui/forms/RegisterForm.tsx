@@ -14,8 +14,6 @@ import { Input } from "../input";
 import { RegisterSchema } from "@/schemas/auth";
 import { Button } from "../button";
 import { z } from "zod";
-import Image from "next/image";
-import fakturek_logo from "../../../../public/file.svg";
 import { useRouter } from "next/navigation";
 
 type RegisterFormValues = z.infer<typeof RegisterSchema>;
