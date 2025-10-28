@@ -12,7 +12,7 @@ const NAVLINKS = [
   },
   {
     title: "Polityka prywatności",
-    href: "/privacy-policy",
+    href: "/policy-privacy",
   },
 ];
 function Footer() {
