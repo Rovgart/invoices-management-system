@@ -8,7 +8,7 @@ import { Button } from "./button";
 const NAVLINKS = [
   {
     title: "Regulamin",
-    href: "/terms",
+    href: "/regulations",
   },
   {
     title: "Polityka prywatności",
