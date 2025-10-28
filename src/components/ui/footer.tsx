@@ -7,32 +7,12 @@ import { Input } from "./input";
 import { Button } from "./button";
 const NAVLINKS = [
   {
-    title: "Logowanie",
-    href: "/login",
-  },
-  {
-    title: "Rejestracja",
-    href: "/register",
-  },
-  {
-    title: "Funkcje",
-    href: "/funkcje",
-  },
-  {
-    title: "Cennik",
-    href: "/cennik",
-  },
-  {
-    title: "Demo",
-    href: "/demo",
-  },
-  {
     title: "Regulamin",
-    href: "/regulamin",
+    href: "/regulations",
   },
   {
     title: "Polityka prywatności",
-    href: "/polityka-prywatnosci",
+    href: "/policy-privacy",
   },
 ];
 function Footer() {
